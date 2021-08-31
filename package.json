@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-swc2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "rollup plugin to use swc compiler",
   "main": "dist/index.js",
   "types": "index.d.ts",
@@ -26,12 +26,15 @@
   "license": "MIT",
   "dependencies": {
     "@rollup/pluginutils": "^4.1.1",
-    "@swc/core": "^1.2.77",
     "rollup": "^2.56.2"
   },
   "devDependencies": {
+    "@swc/core": "^1.2.83",
     "@types/node": "^16.6.1",
     "tsup": "^4.13.1",
     "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "@swc/core": "^1.2.83"
   }
 }

@@ -1,13 +1,16 @@
-# rollup-plugin-swc2 (WIP)
+# rollup-plugin-swc2
 
 A rollup plugin that uses swc compiler to transform your codes
 
 ### install
 
-```
-npm i -D rollup-plugin-swc2
+@swc/core as a peerDependency, you should also install it
 
-yarn add -D rollup-plugin-swc2
+```
+npm i -D rollup-plugin-swc2 @swc/core
+```
+```
+yarn add -D rollup-plugin-swc2 @swc/core
 ```
 
 ### how to use
@@ -17,9 +20,11 @@ yarn add -D rollup-plugin-swc2
 export interface Options {
   include?: FilterPattern;
   exclude?: FilterPattern; // default /node_modules/
-  swcTransformOptions?: swc.Options; // support all @swc/core config
+  swcTransformOptions?: swc.Options; // @swc/core config
 }
 ```
+
+check [https://swc.rs/docs/configuring-swc](https://swc.rs/docs/configuring-swc) to see all `@swc/core` configuration
 
 ```js
 // in your rollup.config.ts
@@ -45,10 +50,14 @@ const config = {
       ],
     }),
     swc({
+      // demo config
       swcTransformOptions: {
         jsc: {
+          externalHelpers: true,
           parser: {
             syntax: "typescript",
+            tsx: true,
+            dynamicImport: true
           },
           transform: {
             react: {
